@@ -1,2 +1,2 @@
-const BASE_URL = 'http://localhost:8000/api';
+const BASE_URL = 'https://countrylistbackend.herokuapp.com/api';
 export const FETCH_COUNTRIES = `${BASE_URL}/country/list`;
