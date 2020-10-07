@@ -6,6 +6,7 @@ export const useCountry = () => {
     const [page, setPage] = useState(1);
     const [keyword, setKeyword] = useState('');
     const [total, setTotal] = useState(0);
+    const [loading, setLoading] = useState(true);
     const [countryList, setCountryList] = useState([]);
     const [error, setError] = useState(null);
     const fetchCountries = useCallback( async () => {
@@ -15,14 +16,16 @@ export const useCountry = () => {
             setTotal(res.data.total);
             setCountryList(res.data.data);
             setError(null);
+            setLoading(false);
         } catch (error) {
             setTotal(0);
             setCountryList([]);
             setError(error.message);
+            setLoading(false);
         }
     },[page, limit, keyword]);
     useEffect(()=>{
         fetchCountries();
     },[fetchCountries]);
-    return {setLimit, setPage, page, setKeyword, limit, total, countryList, error}
+    return {setLimit, setPage, page, setKeyword, limit, total, countryList, error, loading}
 }
