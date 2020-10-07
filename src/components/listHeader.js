@@ -13,7 +13,7 @@ const ListHeader = ({onSearch, limit, setLimit}) => {
     </Col>
     <Col sm="3">
     <FormGroup>
-    <Input type="select"  className="select-range" name="select" id="exampleSelect" value={limit} onChange={(e)=>setLimit(e.target.value)}> 
+    <Input type="select"  className="select-range" name="select" id="exampleSelect" defaultValue={10} onChange={(e)=>setLimit(e.target.value)}> 
       <option>5</option>
       <option>10</option>
       <option>20</option>
